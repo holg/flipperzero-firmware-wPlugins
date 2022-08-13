@@ -222,7 +222,7 @@ static bool
     for(uint16_t i = 0; i < snake_state->len; i++) {
         Point p = snake_state->points[i];
         if(p.x == next_step.x && p.y == next_step.y) {
-            return true;
+            return false;
         }
     }
 
@@ -300,7 +300,7 @@ static void snake_game_process_game_step(SnakeState* const snake_state, Notifica
     if(eatFruit) {
         notification_message(notify, &sequence_short_vibro_and_rgb);
 
-        snake_state->len++;
+        snake_state->len = snake_state->len + 10;
         if(snake_state->len >= MAX_SNAKE_LEN) {
             snake_state->state = GameStateGameOver;
             return;
