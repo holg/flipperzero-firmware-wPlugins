@@ -6,19 +6,8 @@
 <b>Latest Updates:</b>
 
 - Known Issues: `FAP Loader` & `Chess`
-- [Force Restart on Battery Display setting change #234 (By ESurge)](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/pull/234)
-- Changed Bluetooth Name to be "Flipper" + Name instead of "Rogue" or "zzRogue" + Name (Due to an Android app bug)
-- Audio.IR updated and remote file updated By [Unleashed/xMasterX](https://github.com/Eng1n33r/flipperzero-firmware)
-- Update Mifare Classic dict asset By [Unleashed/xMasterX](https://github.com/Eng1n33r/flipperzero-firmware)
-- Added some extra checks for custom flipper names By [Unleashed/xMasterX](https://github.com/Eng1n33r/flipperzero-firmware)
-- Updated [Paint (By n-o-T-I-n-s-a-n-e)](https://github.com/n-o-T-I-n-s-a-n-e)
-- Updated [WiFi (Marauder) (By 0xchocolate)](https://github.com/0xchocolate/flipperzero-firmware-with-wifi-marauder-companion) `REQUIRES ESP32 WITH MARAUDER FLASHED`
-- Clock now has Stop/Reset functionality (again) and Code Clean up for Clock
-- [How to build firmware](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/blob/420/documentation/HowToBuild.md) updated [By non-bin](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/pull/238)
-- Cruicial Fixes for [WiFi (Marauder) (By 0xchocolate)](https://github.com/0xchocolate/flipperzero-firmware-with-wifi-marauder-companion) `REQUIRES ESP32 WITH MARAUDER FLASHED`
-- Un-distorted music player fixes By [Unleashed/xMasterX](https://github.com/Eng1n33r/flipperzero-firmware)
-- Added [Zombiez (Reworked By DevMilanIan)](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/pull/240) [(Original By Dooskington)](https://github.com/Dooskington/flipperzero-zombiez)
-- Updates for Clock to be more accurate and more stable
+- Added [keyboard_layout_file documentation](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/blob/420/documentation/keyboard_layout_file.md) [(By dummy-decoy)](https://github.com/flipperdevices/flipperzero-firmware/pull/1525)
+- Images optimized for space [thanks to CyberFlameGO](https://github.com/CyberFlameGO/flipperzero-firmware/tree/imgbot)
 
 <table width="100%" border="0" cellspacing="0">
   <tr> <td colspan=2> <h3>This software is for experimental purposes only and is not meant for any illegal activity/purposes. We do not condone illegal activity and strongly encourage keeping transmissions to legal/valid uses allowed by law.</h3> </td> </tr>
@@ -87,6 +76,7 @@ $ ./fbt plugin_dist FIRMWARE_APP_SET=ext_apps
 - Assets: Running DolphinRestorer.fap on new install will auto-level to the end of Level 2.
 - BadUSB: Added ignore DUCKY_LANG cmd to retain compatibility with existing scripts [(Thanks to v1nc)](https://github.com/v1nc/flipperzero-firmware)
 - BadUSB: show script errors on screen [(By CromFr)](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/pull/200)
+- BadUSB: sk-SK maping keybord for BadUsb [(By jaroslavmraz)](https://github.com/flipperdevices/flipperzero-firmware/pull/1619)
 - Bluetooth: Bluetooth fix so device name says zzRogue instead of Flipper [(By RogueMaster)](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/blob/420/firmware/targets/f7/furi_hal/furi_hal_version.c#L95) [REMOVED DUE TO ANDROID INCOMPATABILITY]
 - Development free space thanks to removal of unused debug tools and [thanks to ESurge](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/pull/46/files) for removal of first start assets.
 - Dolphin: Assigned profile pic for levels 1-10, 11-20 and 21-30 respectively from default lvl 1, 2 & 3
@@ -145,7 +135,6 @@ $ ./fbt plugin_dist FIRMWARE_APP_SET=ext_apps
 - [I²C-Scanner #1431 (By GitChris3004)](https://github.com/flipperdevices/flipperzero-firmware/pull/1431)
 - [Dummy decoy/bad usb keyboard layout #1525 (By dummy-decoy)](https://github.com/flipperdevices/flipperzero-firmware/pull/1525)
 - [Change default keyboard to Uppercase #1548 (By DrEverr)](https://github.com/flipperdevices/flipperzero-firmware/pull/1548)
-- [sk-SK maping keybord for BadUsb #1537 (By jaroslavmraz)](https://github.com/flipperdevices/flipperzero-firmware/pull/1537)
 - [Picopass load/info/delete #1562 (By bettse)](https://github.com/flipperdevices/flipperzero-firmware/pull/1562)
 
 </details>
@@ -165,7 +154,7 @@ $ ./fbt plugin_dist FIRMWARE_APP_SET=ext_apps
 - `FAP` [Game of Life (Updated to work by tgxn) (By itsyourbedtime)](https://github.com/tgxn/flipperzero-firmware/blob/dev/applications/game_of_life/game_of_life.c) `HIDDEN "GAME_GameOfLife"`
 - `FAP` [Mandelbrot Set (By Possibly-Matt)](https://github.com/Possibly-Matt/flipperzero-firmware-wPlugins) `HIDDEN "GAME_MandelbrotSet"`
 - [Monty Hall (By DevMilanIan)](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/pull/203)
-- `FAP` [RayCast (Bt Zlo)](https://github.com/flipperdevices/flipperzero-firmware/tree/zlo/raycast-game-engine)
+- `FAP` [RayCast (Bt Zlo)](https://github.com/flipperdevices/flipperzero-firmware/tree/zlo/raycast-game-engine) `HIDDEN "GAME_Raycast"`
 - `FAP` Snake [OFW]
 - [Tamagochi (By GMMan)](https://github.com/GMMan/flipperzero-firmware/tree/tama-p1) requires [this rom](https://wowroms.com/en/roms/mame/download-tamagotchi-usa/108517.html) IN `tama_p1` on SD as `rom.bin` to make it work.
 - `FAP` [Tanks (By Alexgr13)](https://github.com/alexgr13/flipperzero-firmware/tree/fork/dev/applications/tanks-game) `HIDDEN "GAME_Tanks"`
@@ -179,10 +168,11 @@ $ ./fbt plugin_dist FIRMWARE_APP_SET=ext_apps
   <summary><B>PLUGINS</b></summary><br/>
 
 - - PLUGINS `HIDDEN` if they have uncommon hardware dependancies
-- `FAP` [Barcode Generator (By McAzzaMan)](https://github.com/McAzzaMan/flipperzero-firmware/tree/UPC-A_Barcode_Generator/applications/barcode_generator)
+- [.sub Playlist (By darmiel)](https://github.com/darmiel/flipper-playlist)
+- `FAP` [Barcode Generator (By McAzzaMan)](https://github.com/McAzzaMan/flipperzero-firmware/tree/UPC-A_Barcode_Generator/applications/barcode_generator) `HIDDEN "APPS_BarcodeGenerator"`
 - `FAP` [Bluetooth Remote (By Cutch)[OFW]](https://github.com/flipperdevices/flipperzero-firmware/pull/1330)
 - [Clock/Stopwatch (By CompaqDisc, Stopwatch & Sound Alert By RogueMaster)](https://gist.github.com/CompaqDisc/4e329c501bd03c1e801849b81f48ea61)
-- [Dec/Hex Converter plugin (By theisolinearchip)](https://github.com/theisolinearchip)
+- [Dec/Hex Converter plugin (By theisolinearchip)](https://github.com/theisolinearchip) `HIDDEN "APPS_dec_hex_converter"`
 - `FAP` [Dolphin Backup (By nminaylov)](https://github.com/flipperdevices/flipperzero-firmware/pull/1384) Modified by RogueMaster
 - `FAP` [Dolphin Restorer (By nminaylov)](https://github.com/flipperdevices/flipperzero-firmware/pull/1384) Cloned by RogueMaster
 - [HID Analyzer (By Ownasaurus)](https://github.com/Ownasaurus/flipperzero-firmware/tree/hid-analyzer/applications/hid_analyzer)
@@ -192,8 +182,9 @@ $ ./fbt plugin_dist FIRMWARE_APP_SET=ext_apps
 - `FAP` [NRF Sniff (By mothball187)](https://github.com/mothball187/flipperzero-nrf24/tree/main/nrfsniff) ([Pin Out](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/tree/420/applications/nrfsniff) from nocomp/Frog/UberGuidoZ) `Req: NRF24`
 - [Paint (By n-o-T-I-n-s-a-n-e)](https://github.com/n-o-T-I-n-s-a-n-e)
 - [PicoPass Reader (By Bettse)](https://github.com/flipperdevices/flipperzero-firmware/pull/1366)
+- [RFID Fuzzer (By Ganapati)](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/pull/245) `HIDDEN "APPS_FlipFrid"`
 - [RF Remix (By ESurge)](https://github.com/ESurge/flipperzero-firmware-unirfremix) [(Original By jimilinuxguy)](https://github.com/jimilinuxguy/flipperzero-universal-rf-remote/tree/028d615c83f059bb2c905530ddb3d4efbd3cbcae/applications/jukebox)
-- `FAP` [Sentry Safe (By H4ckd4ddy)](https://github.com/H4ckd4ddy/flipperzero-sentry-safe-plugin) ([Pin Out](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/tree/420/applications/sentry_safe) from [UberGuidoZ](https://github.com/UberGuidoZ/))
+- `FAP` [Sentry Safe (By H4ckd4ddy)](https://github.com/H4ckd4ddy/flipperzero-sentry-safe-plugin) ([Pin Out](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/tree/420/applications/sentry_safe) from [UberGuidoZ](https://github.com/UberGuidoZ/)) `HIDDEN "APPS_SentrySafe"`
 - `FAP` [Spectrum Analyzer (By jolcese)](https://github.com/jolcese/flipperzero-firmware/tree/spectrum/applications/spectrum_analyzer) [Updates (for testing) Thanks to theY4Kman](https://github.com/theY4Kman/flipperzero-firmware)
 - `FAP` [Touch Tunes Remote (By jimilinuxguy)](https://github.com/jimilinuxguy/flipperzero-universal-rf-remote/tree/028d615c83f059bb2c905530ddb3d4efbd3cbcae/applications/jukebox) `HIDDEN "APPS_TouchTunes"`
 - `FAP` [WAV Player (By Zlo)](https://github.com/flipperdevices/flipperzero-firmware/tree/zlo/wav-player) Updated by Atmanos & RogueMaster To Work
