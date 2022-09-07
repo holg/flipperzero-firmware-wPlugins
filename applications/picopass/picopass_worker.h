@@ -11,6 +11,7 @@ typedef enum {
     PicopassWorkerStateReady,
     // Main worker states
     PicopassWorkerStateDetect,
+    PicopassWorkerStateWrite,
     // Transition
     PicopassWorkerStateStop,
 } PicopassWorkerState;
@@ -23,6 +24,7 @@ typedef enum {
     PicopassWorkerEventSuccess,
     PicopassWorkerEventFail,
     PicopassWorkerEventNoCardDetected,
+    PicopassWorkerEventSeEnabled,
 
     PicopassWorkerEventStartReading,
 } PicopassWorkerEvent;
