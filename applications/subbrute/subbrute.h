@@ -12,6 +12,9 @@
 #include <dialogs/dialogs.h>
 #include <notification/notification.h>
 #include <notification/notification_messages.h>
+#include <gui/view_dispatcher.h>
+#include <gui/modules/text_input.h>
+#include <gui/modules/popup.h>
 
 #define TAG "SUBBRUTE"
 
@@ -20,11 +23,13 @@ typedef enum {
     SceneSelectFile,
     SceneSelectField,
     SceneAttack,
-    SceneEntryPoint
+    SceneEntryPoint,
+    SceneSaveName
 } SubBruteScene;
 
 typedef enum {
     SubBruteAttackLoadFile,
+    SubBruteAttackCAME12bit307,
     SubBruteAttackCAME12bit433,
     SubBruteAttackCAME12bit868,
     SubBruteAttackChamberlain9bit315,
@@ -38,6 +43,7 @@ typedef enum {
 typedef enum {
     EventTypeTick,
     EventTypeKey,
+    EventTypeCustom,
 } EventType;
 
 typedef struct {
@@ -51,20 +57,29 @@ typedef struct {
     // Application stuff
     bool is_running;
     bool is_attacking;
+    bool is_thread_running;
+    bool close_thread_please;
     SubBruteScene current_scene;
     SubBruteScene previous_scene;
     NotificationApp* notify;
+    Gui* gui;
+    ViewDispatcher* view_dispatcher;
+    TextInput* text_input;
+    Popup* popup;
 
     // SubGhz Stuff
+    FuriThread* bruthread;
     FlipperFormat* flipper_format;
     SubGhzEnvironment* environment;
     SubGhzTransmitter* transmitter;
     SubGhzReceiver* receiver;
     SubGhzProtocolDecoderBase* decoder_result;
+    SubGhzPresetDefinition* preset_def;
     string_t preset;
     Stream* stream;
     string_t protocol;
     uint32_t frequency;
+    uint32_t frequency_cal;
     uint32_t repeat;
     uint32_t bit;
     string_t key;
@@ -72,6 +87,7 @@ typedef struct {
 
     // Context Stuff
     DialogsApp* dialogs;
+    char file_name_tmp[64];
     string_t file_path;
     string_t file_path_tmp;
     string_t notification_msg;

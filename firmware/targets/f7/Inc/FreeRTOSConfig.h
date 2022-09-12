@@ -145,3 +145,4 @@ standard names. */
 #define USE_CUSTOM_SYSTICK_HANDLER_IMPLEMENTATION 1
 #define configOVERRIDE_DEFAULT_TICK_CONFIGURATION \
     1 /* required only for Keil but does not hurt otherwise */
+
